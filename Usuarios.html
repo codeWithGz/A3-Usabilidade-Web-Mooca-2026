@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="./handlebars.min.js"></script>
+    <script src="assets/js/handlebars.min.js"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -21,16 +21,25 @@
         <div class="container-fluid">
             <iconify-icon icon="lucide:package" class="fs-2 me-1"></iconify-icon>
             <span class="navbar-brand">Catálogo de Produtos</span>
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success">Search</button>
+                
+                <div class="d-flex me-auto mb-2 mb-lg-0" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
+                    <button class="btn btn-outline-success">Buscar</button>
                 </div>
+                
+                <a href="favoritos.html" class="btn btn-warning d-flex align-items-center fw-bold">
+                    Favoritos
+                    <iconify-icon icon="lucide:star" class="ms-2" style="fill: currentColor;"></iconify-icon>
+                </a>
+
             </div>
         </div>
     </nav>
@@ -38,7 +47,7 @@
     <div class="row" id="ProductsList">
         <!-- OS DADOS SERÃO INSERIDOS AQUI-->
     </div>
-    <script src="./main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
