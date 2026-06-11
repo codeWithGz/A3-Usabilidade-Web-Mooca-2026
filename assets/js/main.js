@@ -91,3 +91,28 @@ function toggleFavorite(produtoId, iconeHTML) {
 
     salvarFavoritos(favs);
 }
+
+let ordemCrescente = true;
+
+function ordenarPorPreco() {
+
+    ordemCrescente = !ordemCrescente; 
+    
+    let btnOrdenar = document.getElementById("btnOrdenar");
+    
+    if (ordemCrescente) {
+        btnOrdenar.innerHTML = '<iconify-icon icon="lucide:arrow-up" class="me-2"></iconify-icon> Preço: Menor para Maior';
+    } else {
+        btnOrdenar.innerHTML = '<iconify-icon icon="lucide:arrow-down" class="me-2"></iconify-icon> Preço: Maior para Menor';
+    }
+
+    todosProdutos.sort((a, b) => {
+        if (ordemCrescente) {
+            return a.price - b.price;
+        } else {
+            return b.price - a.price;
+        }
+    });
+
+    filtrarProdutos();
+}
