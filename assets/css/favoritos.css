@@ -1,0 +1,10 @@
+.star-fav {
+    cursor: pointer;
+    color: #ffc107;
+    fill: #ffc107;
+    transition: transform 0.3s ease;
+}
+
+.star-fav:hover {
+    transform: scale(1.2);
+}
