@@ -31,8 +31,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
                 <div class="d-flex me-auto mb-2 mb-lg-0" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
-                    <button class="btn btn-outline-success">Buscar</button>
+                    <input id="searchInput" class="form-control me-2" type="search" placeholder="Buscar nome em inglês..." aria-label="Search" oninput="filtrarProdutos()" />
+                    <button class="btn btn-outline-success" type="button" onclick="filtrarProdutos()">Buscar</button>
                 </div>
                 
                 <a href="favoritos.html" class="btn btn-warning d-flex align-items-center fw-bold">

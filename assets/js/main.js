@@ -25,24 +25,45 @@ let templateCard = `
 
 let template = Handlebars.compile(templateCard);
 
-async function lerProdutos() {
-    let response = await fetch('https://dummyjson.com/products');
-    let data = await response.json();
+let todosProdutos = [];
 
+function renderizarProdutos(listaDeProdutos) {
     let contentHtml = "";
-    
     let favs = getFavoritos();
 
-    for (let idx in data.products) {
-        let product = data.products[idx];
+    for (let i in listaDeProdutos) {
+        let product = listaDeProdutos[i];
         
         product.isFavorited = favs.includes(product.id);
-        
         contentHtml = contentHtml + template(product);
     }
 
     let elem = document.getElementById("ProductsList");
-    elem.innerHTML = contentHtml;
+    
+    if (listaDeProdutos.length === 0) {
+        elem.innerHTML = "<p class='text-center mt-5 text-secondary'>Nenhum produto encontrado com este nome.</p>";
+    } else {
+        elem.innerHTML = contentHtml;
+    }
+}
+
+async function lerProdutos() {
+    let response = await fetch('https://dummyjson.com/products');
+    let data = await response.json();
+
+    todosProdutos = data.products;
+
+    renderizarProdutos(todosProdutos);
+}
+
+function filtrarProdutos() {
+    let termoBusca = document.getElementById("searchInput").value.toLowerCase();
+    
+    let produtosFiltrados = todosProdutos.filter(product => {
+        return product.title.toLowerCase().includes(termoBusca);
+    });
+
+    renderizarProdutos(produtosFiltrados);
 }
 
 lerProdutos();
@@ -70,4 +91,3 @@ function toggleFavorite(produtoId, iconeHTML) {
 
     salvarFavoritos(favs);
 }
-
